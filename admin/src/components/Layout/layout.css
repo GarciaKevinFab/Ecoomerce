@@ -1,0 +1,5 @@
+.layoutWithSidebarOpen {
+    margin-left: 250px; /* Ajustar al mismo ancho del sidebar */
+    transition: margin-left 0.3s ease;
+  }
+  

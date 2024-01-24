@@ -1,0 +1,105 @@
+/* Base Styles for the Slider Container */
+.container-slider {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide slider on mobile devices */
+@media (max-width: 768px) {
+  .container-slider {
+    display: none;
+  }
+}
+
+/* Arrow Styles */
+.arrow {
+  width: 50px;
+  height: 50px;
+  background-color: #fff7f7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* Positioning for left and right arrows */
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+/* Wrapper Styles */
+.wrapper {
+  height: 100%;
+  display: flex;
+  transition: all 1.5s ease;
+}
+
+/* Individual Slide Styles */
+.slide {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Image Container */
+.img-container {
+  height: 100%;
+  flex: 1;
+}
+
+/* Image Slider Styles */
+.image-slider {
+  height: 80%;
+}
+
+/* Information Container Styles */
+.info-container-slider {
+  flex: 1;
+  padding: 50px;
+}
+
+/* Title Styles */
+.title-slider {
+  font-size: 70px;
+  /* Responsive font size */
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+}
+
+/* Button Styles */
+.button-slider {
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Additional Media Queries for Responsiveness */
+@media (max-width: 480px) {
+  /* Adjust styles for smaller screens */
+  .info-container-slider {
+    padding: 20px;
+  }
+  .title-slider {
+    font-size: 30px;
+  }
+  .button-slider {
+    font-size: 16px;
+  }
+}

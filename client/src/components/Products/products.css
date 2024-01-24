@@ -1,0 +1,21 @@
+.container-products {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Estilos para tablets */
+@media (max-width: 768px) {
+  .container-products {
+    justify-content: center; /* Centra los elementos si la pantalla es más pequeña */
+  }
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 480px) {
+  .container-products {
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+    align-items: center; /* Alinea los elementos al centro */
+  }
+}

@@ -1,0 +1,13 @@
+.Containers-categories {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+  /* Media query for mobile devices */
+@media (max-width: 768px) {
+.Container-categories {
+    padding: 0px;
+    flex-direction: column;
+    }
+}

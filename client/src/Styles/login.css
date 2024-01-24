@@ -1,0 +1,91 @@
+.container-login {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.685)
+      ),
+      url("https://raw.seadn.io/files/cf006463fd4652864cb7d3ef33382410.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .wrapper-login {
+    width: 25%;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .wrapper-login {
+      width: 80%;
+    }
+  }
+  
+  .title-login {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-login {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-login {
+    flex: 1;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .button-login {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    background-color: #00796b;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .button-login:hover {
+    background-color: #005f56;
+  }
+  
+  .button-login:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .link-login {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #00796b;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .link-login:hover {
+    text-decoration: underline;
+  }
+  
+  .error-login {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
