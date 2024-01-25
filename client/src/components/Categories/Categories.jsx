@@ -1,7 +1,7 @@
 import React from 'react';
 import { categories } from "../../data";
 import CategoryItem from "../CategoryItem";
-import './Categories.css'; // Import the CSS file
+import './Categories.css';
 
 const Categories = () => {
   return (

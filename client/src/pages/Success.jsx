@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import axios from "axios"; // Import axios
+import axios from "axios";
 import { BASE_URL } from "../utils/config";
 
 const Success = () => {
@@ -14,8 +14,7 @@ const Success = () => {
   useEffect(() => {
     const createOrder = async () => {
       try {
-        // Using axios for the POST request
-        const res = await axios.post(`${BASE_URL}/orders`, {
+        const res = await axios.post(`${BASE_URL}orders`, {
           userId: currentUser._id,
           products: cart.products.map((item) => ({
             productId: item._id,
@@ -27,7 +26,6 @@ const Success = () => {
         setOrderId(res.data._id);
       } catch (error) {
         console.error("Order creation error:", error);
-        // Handle the error as needed
       }
     };
     if (data) createOrder();

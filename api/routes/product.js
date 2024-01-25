@@ -11,10 +11,10 @@ import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
 // Rutas para los productos
-router.post('/', createProduct);
-router.put('/:id', updateProduct);
-router.delete('/:id', deleteProduct);
-router.get('/find/:id', getProduct);
-router.get('/', getAllProducts);
+router.post('/', verifyAdmin, createProduct);
+router.put('/:id', verifyAdmin, updateProduct);
+router.delete('/:id', verifyAdmin, deleteProduct);
+router.get('/find/:id', verifyAdmin, getProduct);
+router.get('/', verifyAdmin, getAllProducts);
 
 export default router;

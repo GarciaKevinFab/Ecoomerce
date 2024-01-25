@@ -1,10 +1,6 @@
-import {
-  Instagram,
-  MailOutline,
-  Phone,
-  Twitter,
-} from "@material-ui/icons";
-import './Footer.css'; // Importación de estilos CSS
+import React from "react";
+import { MailOutline, Phone, Twitter } from "@material-ui/icons";
+import './footer.css';
 
 const Footer = () => {
   return (
@@ -12,17 +8,14 @@ const Footer = () => {
       <div className="Left">
         <h1 className="Logo">TechMart.</h1>
         <p className="Desc">
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
+          TechMart es tu destino de confianza para lo último en tecnología y gadgets.
+          Garantizamos que siempre estés a un clic de encontrar exactamente lo
+          que necesitas.
         </p>
         <div className="SocialContainer">
-          <div className="SocialIcon" style={{ backgroundColor: "#E4405F" }}>
-            <Instagram />
-          </div>
-          <div className="SocialIcon" style={{ backgroundColor: "#55ACEE" }}>
+          <a href="https://twitter.com/GarciaKevinFab" target="_blank" rel="noopener noreferrer" className="SocialIcon" style={{ backgroundColor: "#55ACEE" }}>
             <Twitter />
-          </div>
+          </a>
         </div>
       </div>
       <div className="Center">

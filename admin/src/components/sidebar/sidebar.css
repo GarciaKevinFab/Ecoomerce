@@ -4,16 +4,17 @@
   background-color: rgb(251, 251, 255);
   position: sticky;
   top: 50px;
-  width: 250px; /* O el ancho que prefieras */
+  width: 250px;
   overflow: hidden;
   transition: all 0.3s ease;
-  left: -250px; /* Ocultar inicialmente */
+  left: -250px;
   position: fixed;
 }
 
 .sidebar.open {
-  left: 0; /* Mover a la vista cuando esté abierto */
+  left: 0;
 }
+
 .sidebarWrapper {
   padding: 20px;
   color: #555;
@@ -46,7 +47,7 @@
   background-color: rgb(240, 240, 255);
 }
 
-.sidebarIcon{
-    margin-right: 5px;
-    font-size: 20px !important;
+.sidebarIcon {
+  margin-right: 5px;
+  font-size: 20px !important;
 }

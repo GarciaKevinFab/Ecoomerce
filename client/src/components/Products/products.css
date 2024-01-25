@@ -3,19 +3,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 20px;
 }
 
-/* Estilos para tablets */
+.container-products>div {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-products>div:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 768px) {
   .container-products {
-    justify-content: center; /* Centra los elementos si la pantalla es más pequeña */
+    justify-content: center;
+    gap: 15px;
   }
 }
 
-/* Estilos para dispositivos móviles */
 @media (max-width: 480px) {
   .container-products {
-    flex-direction: column; /* Los elementos se apilan verticalmente */
-    align-items: center; /* Alinea los elementos al centro */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 }

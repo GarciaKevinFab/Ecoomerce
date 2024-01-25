@@ -1,42 +1,86 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/apiCalls";
-import "../Styles/login.css";
+import React, { useState, useContext } from "react";
+import { Form, FormGroup, Button } from 'reactstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import '../Styles/login.css';
+import { AuthContext } from './../context/AuthContext';
+import { BASE_URL } from './../utils/config';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const { isFetching, error } = useSelector((state) => state.user);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    login(dispatch, { username, password });
+  const [credentials, setCredentials] = useState({
+    email: undefined,
+    password: undefined
+  });
+
+  const { dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleChange = e => {
+    setCredentials(prev => ({ ...prev, [e.target.id]: e.target.value }));
   };
+
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
+
+  const handleClick = async e => {
+    e.preventDefault();
+
+    dispatch({ type: 'LOGIN_START' })
+
+    try {
+
+      const res = await fetch(`${BASE_URL}auth/login`, {
+        method: 'post',
+        headers: {
+          'content-type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(credentials),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        toast.error(result.message);
+      } else {
+        dispatch({ type: "LOGIN_SUCCESS", payload: result.data });
+        navigate("/");
+      }
+
+    } catch (err) {
+      toast.error(err.message);
+      dispatch({ type: "LOGIN_FAILURE", payload: err.message });
+    }
+  };
+
 
   return (
     <div className="container-login">
       <div className="wrapper-login">
-        <h1 className="title-login">Sign In</h1>
-        <form className="form-login">
-          <input
-            className="input-login"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            className="input-login"
-            placeholder="Password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="button-login" onClick={handleClick} disabled={isFetching}>
-            Login
-          </button>
-          {error && <span className="error-login">Something went wrong...</span>}
-          <a href="#" className="link-login">Forgot your password?</a>
-          <a href="#" className="link-login">Create a new account</a>
-        </form>
+        <h2 className="title-login">Acceder</h2>
+
+        <Form onSubmit={handleClick} className="form-login">
+          <FormGroup>
+            <input type="email" placeholder="Email" required id="email"
+              onChange={handleChange} className="input-login" />
+          </FormGroup>
+          <FormGroup className="position-relative">
+            <input type={passwordShown ? "text" : "password"} placeholder="Contraseña" required id="password" onChange={handleChange} className="input-login form-control" />
+            <i onClick={togglePasswordVisibility} className="position-absolute top-50 end-0 translate-middle-y" style={{ cursor: 'pointer', marginRight: '10px' }}>{passwordShown ? <FaEye /> : <FaEyeSlash />}</i>
+          </FormGroup>
+
+          <Button className="button-login" type="submit">
+            Ingresar
+          </Button>
+        </Form>
+        <p className="link-login">¿No tienes una cuenta? <Link to='/register'>Registrar</Link></p>
       </div>
     </div>
   );

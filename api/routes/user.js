@@ -8,22 +8,22 @@ const router = express.Router();
 router.post('/', createUser);
 
 // Actualizar usuario
-router.put('/:id', updateUser);
+router.put('/:id', verifyAdmin, updateUser);
 
 // Eliminar usuario
-router.delete('/:id', deleteUser);
+router.delete('/:id', verifyAdmin, deleteUser);
 
 // Obtener un solo usuario
-router.get('/:id', getSingleUser);
+router.get('/:id', verifyAdmin, getSingleUser);
 
 // Obtener todos los usuarios
-router.get('/', getAllUser);
+router.get('/', verifyAdmin, getAllUser);
 
 // Obtener usuarios nuevos
-router.get('/?new=true', getNewUsers);
+router.get('/?new=true', verifyAdmin, getNewUsers);
 
 // Obtener estadísticas de usuarios
-router.get('/test', getUserStats);
+router.get('/test', verifyAdmin, getUserStats);
 
 
 

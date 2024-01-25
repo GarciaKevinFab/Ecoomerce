@@ -5,6 +5,7 @@ import { Add, Remove } from "@material-ui/icons";
 import Newsletter from "../components/Newsletter/Newsletter";
 import { addProduct } from "../redux/cartRedux";
 import { BASE_URL } from "../utils/config";
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import '../Styles/product.css';
 
@@ -37,6 +38,7 @@ const Product = () => {
 
   const handleClick = () => {
     dispatch(addProduct({ ...product, quantity }));
+    toast.success("Producto añadido al carrito!");
   };
 
   return (

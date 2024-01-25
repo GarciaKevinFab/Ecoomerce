@@ -5,11 +5,11 @@ import "./newsletter.css";
 const Newsletter = () => {
   return (
     <div className="container-newsletter">
-      <h1 className="title">Suscribete</h1>
-      <div className="desc">Recibe actualizaciones oportunas de tus productos favoritos.</div>
-      <div className="inputContainer">
-        <input className="input" placeholder="Tu correo" />
-        <button className="button">
+      <h1 className="title-newsletter">Suscribete</h1>
+      <div className="desc-newsletter">Recibe actualizaciones oportunas de tus productos favoritos.</div>
+      <div className="inputContainer-newsletter">
+        <input className="input-newsletter" placeholder="Tu correo" />
+        <button className="button-newsletter">
           <Send />
         </button>
       </div>
