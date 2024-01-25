@@ -16,7 +16,6 @@ export const createUser = async (req, res) => {
             });
     } catch (err) {
         if (err.code === 11000) {
-            // This is a duplicate key error
             res
                 .status(400)
                 .json({ success: false, message: 'Username or email already exists.' });
@@ -113,7 +112,6 @@ export const getAllUser = async (req, res) => {
 // getNewUsers
 export const getNewUsers = async (req, res) => {
     try {
-        // Establecer el criterio de "nuevo". Por ejemplo, usuarios creados en los últimos 7 días.
         const dateLimit = new Date();
         dateLimit.setDate(dateLimit.getDate() - 7);
 
@@ -153,7 +151,6 @@ export const getUserStats = async (req, res) => {
             },
         ]);
 
-        console.log("Datos obtenidos:", data);
         res.status(200).json({
             success: true,
             data: data,
@@ -161,11 +158,10 @@ export const getUserStats = async (req, res) => {
     } catch (err) {
         console.error("Error en getUserStats:", err);
 
-        // Envía una respuesta de error detallada
         res.status(500).json({
             success: false,
             message: 'Error al obtener estadísticas de usuarios',
-            error: err.message // Agregar el mensaje de error
+            error: err.message
         });
     }
 };

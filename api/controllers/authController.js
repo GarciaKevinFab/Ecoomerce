@@ -8,7 +8,6 @@ import nodemailer from 'nodemailer';
 export const register = async (req, res) => {
     try {
 
-        //cifrado de contraseña
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
 
@@ -41,10 +40,8 @@ export const login = async (req, res) => {
             return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
         }
 
-        //si el usuario existe, entonces comprueba la contraseña
         const checkCorrectPassword = await bcrypt.compare(req.body.password, user.password);
 
-        //si la contraseña es incorrecta
         if (!checkCorrectPassword) {
 
             return res.status(401).json({
@@ -61,10 +58,7 @@ export const login = async (req, res) => {
             process.env.JWT_SECRET_KEY,
             { expiresIn: "15d" }
         );
-        console.log("Token JWT generado: ", token); // Log del token
 
-
-        //configurar el token en las cookies del navegador y enviar la respuesta al cliente
         res.cookie('accessToken', token, {
             httpOnly: true,
             expires: token.expiresIn

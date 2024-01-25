@@ -5,6 +5,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../utils/config";
+import { toast } from 'react-toastify';
 
 export default function UserList() {
   const [data, setData] = useState([]);
@@ -13,34 +14,30 @@ export default function UserList() {
     const fetchUsers = async () => {
       try {
         const res = await axios.get(`${BASE_URL}users`);
-        console.log("Usuarios obtenidos:", res.data);
         const usersData = res.data.data.map(user => ({
           ...user,
-          id: user._id, // Esto es crucial para que DataGrid funcione correctamente
+          id: user._id,
         }));
         setData(usersData);
       } catch (err) {
-        console.error("Error al obtener usuarios:", err);
+        toast.error("Error al obtener usuarios:", err);
       }
     };
 
     fetchUsers();
   }, []);
 
-
-
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${BASE_URL}users/${id}`); // Eliminar usuario del backend
-      setData(data.filter((item) => item.id !== id)); // Actualizar estado local
+      await axios.delete(`${BASE_URL}users/${id}`);
+      setData(data.filter((item) => item.id !== id));
     } catch (err) {
-      console.error(err);
+      toast.error("Error al Elimininar usuarios:", err);
     }
   };
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
-    // Asegúrate de que las siguientes propiedades coincidan con tu modelo de usuario
     {
       field: "username",
       headerName: "Nombre de Usuario",

@@ -1,30 +1,19 @@
-import express from 'express';
-import { createUser, deleteUser, getAllUser, getSingleUser, updateUser, getNewUsers, getUserStats } from '../controllers/userController.js';
-import { verifyAdmin, verifyUser } from '../utils/verifyToken.js';
+import express from "express";
+import { createUser, deleteUser, getAllUser, getSingleUser, updateUser } from "../controllers/userController.js";
+import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
-// Crear usuario
-router.post('/', createUser);
+//update  user
+router.put('/:id', updateUser);
 
-// Actualizar usuario
-router.put('/:id', verifyAdmin, updateUser);
+//delete user
+router.delete('/:id', deleteUser);
 
-// Eliminar usuario
-router.delete('/:id', verifyAdmin, deleteUser);
+//get single user
+router.get('/:id', getSingleUser);
 
-// Obtener un solo usuario
-router.get('/:id', verifyAdmin, getSingleUser);
-
-// Obtener todos los usuarios
-router.get('/', verifyAdmin, getAllUser);
-
-// Obtener usuarios nuevos
-router.get('/?new=true', verifyAdmin, getNewUsers);
-
-// Obtener estadísticas de usuarios
-router.get('/test', verifyAdmin, getUserStats);
-
-
+//get all users
+router.get('/', getAllUser);
 
 export default router;

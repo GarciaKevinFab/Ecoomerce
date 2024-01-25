@@ -33,9 +33,6 @@ export default function EditUser() {
     const fetchUser = async () => {
       try {
         const res = await axios.get(`${BASE_URL}users/${userId}`);
-        console.log("Respuesta de la API:", res);
-
-        // Los datos del usuario están en res.data.data
         const fetchedUser = res.data.data;
         setUser({
           username: fetchedUser.username || "",
@@ -44,7 +41,6 @@ export default function EditUser() {
           createdAt: fetchedUser.createdAt ? new Date(fetchedUser.createdAt).toLocaleDateString() : "",
         });
       } catch (err) {
-        console.error(err);
         toast.error('Error al obtener datos del usuario');
       }
     };
@@ -111,7 +107,7 @@ export default function EditUser() {
           <form className="userUpdateForm" onSubmit={handleSubmit}>
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
-                <label>Nombre de Usuario</label>
+                <label>Nombre de Usuario:</label>
                 <input
                   type="text"
                   name="username"
@@ -121,7 +117,7 @@ export default function EditUser() {
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Correo</label>
+                <label>Correo:</label>
                 <input
                   type="email"
                   name="email"
@@ -131,7 +127,7 @@ export default function EditUser() {
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Contraseña</label>
+                <label>Contraseña:</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -148,7 +144,7 @@ export default function EditUser() {
                 </button>
               </div>
               <div className="userUpdateItem">
-                <label>Rol</label>
+                <label>Rol:</label>
                 <select
                   name="role"
                   className="userUpdateInput"

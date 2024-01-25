@@ -90,7 +90,6 @@ section {
 .password-icon {
   position: absolute;
   right: 10px;
-  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 }
@@ -100,7 +99,8 @@ section {
     flex-direction: column;
   }
 
-  .login__img, .login__form {
+  .login__img,
+  .login__form {
     flex-basis: auto;
   }
 
@@ -120,6 +120,7 @@ section {
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);

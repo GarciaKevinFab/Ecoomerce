@@ -29,7 +29,6 @@ export default function Product() {
   );
 
   useEffect(() => {
-    console.log("Cargando información del producto: ", product);
     if (product) {
       setProductInfo({
         title: product.title || '',
@@ -90,10 +89,8 @@ export default function Product() {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    console.log("Actualizando producto con información: ", productInfo);
     try {
       const response = await axios.put(`${BASE_URL}products/${productId}`, productInfo);
-      console.log("Producto actualizado correctamente: ", response.data);
       toast.success("Product updated successfully");
       setTimeout(() => navigate('/products'), 2000); // Redirige después de 2 segundos
     } catch (err) {

@@ -1,9 +1,9 @@
-.productList{
+.productList {
     flex: 4;
-    height: 500px; 
+    height: 500px;
 }
 
-.productListItem{
+.productListItem {
     display: flex;
     align-items: center;
 }
@@ -16,7 +16,7 @@
     margin-right: 10px;
 }
 
-.productListEdit{
+.productListEdit {
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -26,7 +26,7 @@
     margin-right: 20px;
 }
 
-.productListDelete{
+.productListDelete {
     color: red;
     cursor: pointer;
 }

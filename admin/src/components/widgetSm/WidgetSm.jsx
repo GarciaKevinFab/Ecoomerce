@@ -11,7 +11,7 @@ export default function WidgetSm() {
     const getUsers = async () => {
       try {
         const res = await axios.get(`${BASE_URL}users/?new=true`);
-        setUsers(res.data.data); // Cambio aquí
+        setUsers(res.data.data);
       } catch (error) {
         console.error("Error fetching new users:", error);
       }

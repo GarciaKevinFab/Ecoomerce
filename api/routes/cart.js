@@ -14,8 +14,8 @@ const router = express.Router();
 // Rutas para el carrito
 router.post('/', createCart);
 router.put('/:id', updateCart);
-router.delete('/:id', verifyAdmin, deleteCart);
-router.get('/find/:userId', verifyAdmin, getUserCart);
-router.get('/', verifyAdmin, getAllCarts);
+router.delete('/:id', deleteCart);
+router.get('/find/:userId', getUserCart);
+router.get('/', getAllCarts);
 
 export default router;

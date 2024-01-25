@@ -14,7 +14,6 @@ export default function FeaturedInfo() {
         const res = await axios.get(`${BASE_URL}orders/income`);
         setIncome(res.data);
 
-        // Verifica si res.data tiene al menos dos elementos antes de intentar acceder a sus propiedades
         if (res.data && res.data.length > 1) {
           setPerc((res.data[1].total * 100) / res.data[0].total - 100);
         }

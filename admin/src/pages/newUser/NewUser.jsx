@@ -28,7 +28,6 @@ export default function NewUser() {
       setTimeout(() => navigate('/users'), 2000);
     } catch (err) {
       if (err.response) {
-        // Manejo de errores más específico basado en la respuesta del servidor
         const message = err.response.data.message || "Error al crear el usuario";
         toast.error(message);
       } else {

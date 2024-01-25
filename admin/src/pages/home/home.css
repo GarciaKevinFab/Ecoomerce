@@ -1,8 +1,24 @@
-.home{
+.home {
     flex: 4;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
-.homeWidgets{
+.homeWidgets {
     display: flex;
-    margin: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .homeWidgets {
+        flex-direction: column;
+    }
+
+    .homeWidgets>div {
+        margin-bottom: 20px;
+        width: 100%;
+    }
 }

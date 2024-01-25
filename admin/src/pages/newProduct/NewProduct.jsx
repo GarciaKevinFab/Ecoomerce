@@ -44,18 +44,13 @@ export default function NewProduct() {
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
-      "state_changed",
       (snapshot) => {
-        // Manejo del progreso de la carga
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("Upload is " + progress + "% done");
       },
       (error) => {
-        // Manejo de cargas fallidas
         toast.error("Error al subir la imagen: " + error.message);
       },
       () => {
-        // Manejo de cargas exitosas
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const product = { ...inputs, img: downloadURL, categories: cat, brand: brand };
           addProduct(product, dispatch);

@@ -13,10 +13,10 @@ import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 const router = express.Router();
 
 router.post('/', createOrder);
-router.put('/:id', verifyAdmin, updateOrder);
-router.delete('/:id', verifyAdmin, deleteOrder);
-router.get('/find/:userId', verifyAdmin, getUserOrders);
-router.get('/', verifyAdmin, getAllOrders);
-router.get('/income', verifyAdmin, getMonthlyIncome);
+router.put('/:id', updateOrder);
+router.delete('/:id', deleteOrder);
+router.get('/find/:userId', getUserOrders);
+router.get('/', getAllOrders);
+router.get('/income', getMonthlyIncome);
 
 export default router;

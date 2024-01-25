@@ -1,4 +1,3 @@
-// LayoutRoutes.js
 import React, { useState } from "react";
 import Routers from "./Routers";
 import Topbar from '../components/topbar/Topbar';

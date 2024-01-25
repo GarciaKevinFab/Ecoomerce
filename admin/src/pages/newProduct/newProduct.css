@@ -1,40 +1,83 @@
 .newProduct {
   flex: 4;
   margin-left: 100px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
 }
 
 .addProductForm {
   margin-top: 10px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .addProductItem {
-  width: 250px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.addProductItem > label {
-  color: gray;
-  font-weight: 600;
-  margin-bottom: 10px;
+.addProductItem>label {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.addProductItem > input {
+.addProductItem>input,
+.addProductItem>select {
   padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
-.addProductItem > select {
-  padding: 10px;
+.addProductItem>input:focus,
+.addProductItem>select:focus {
+  border-color: #0056b3;
 }
 
 .addProductButton {
-  margin-top: 10px;
-  padding: 7px 10px;
+  width: 100%;
+  padding: 10px;
   border: none;
-  border-radius: 10px;
-  background-color: darkblue;
+  border-radius: 5px;
+  background-color: #0056b3;
   color: white;
-  font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addProductButton:hover {
+  background-color: #003d82;
+}
+
+@media (max-width: 768px) {
+  .newProduct {
+    margin-left: 20px;
+  }
+
+  .addProductForm {
+    padding: 15px;
+  }
+
+  .addProductItem {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newProduct {
+    margin-left: 10px;
+  }
+
+  .addProductButton {
+    font-size: 14px;
+  }
 }
